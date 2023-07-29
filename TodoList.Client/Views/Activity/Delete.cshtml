@@ -1,0 +1,28 @@
+﻿@model TodoList.Model.ActivityViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Elimina Attività</h1>
+
+<h3>Sei sicuro di voler eliminare l'attività?</h3>
+<div>
+    <hr />
+    <table class="table">
+        <tr>
+            <th>Data Inserimento</th>
+            <td>@Html.DisplayFor(model => model.DataInserimento)</td>
+        </tr>
+        <tr>
+            <th>Descrizione</th>
+            <td>@Html.DisplayFor(model => model.Descrizione)</td>
+        </tr>
+    </table>
+
+    <form asp-action="Delete">
+        <input type="submit" value="Elimina" class="btn btn-danger" /> |
+        <a asp-action="Index">Torna alle attività</a>
+    </form>
+</div>
+

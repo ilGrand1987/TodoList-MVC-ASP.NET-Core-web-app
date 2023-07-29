@@ -1,0 +1,42 @@
+﻿@model TodoList.Model.ActivityViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Modifica l'attività'</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mt-3">
+                <label asp-for="DataInserimento" class="control-label"></label>
+                <input asp-for="DataInserimento" class="form-control" />
+                <span asp-validation-for="DataInserimento" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <label asp-for="Descrizione" class="control-label"></label>
+                <input asp-for="Descrizione" class="form-control" />
+                <span asp-validation-for="Descrizione" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check mt-3">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Completato" /> @Html.DisplayNameFor(model => model.Completato)
+                </label>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Conferma" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Torna alle attività</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
